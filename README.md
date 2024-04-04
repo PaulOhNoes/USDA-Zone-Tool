@@ -1,4 +1,4 @@
-# GETUSDAZONE
+# USDA-Zone-Tool
 
 A simple light weight tool to find a zipcode's USDA zone. [^1]
 
