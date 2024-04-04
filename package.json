@@ -1,0 +1,16 @@
+{
+  "name": "getusdazone",
+  "version": "1.0.0",
+  "description": "Get USDA Zone By Zipcode",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node index.ts",
+    "build": "tsc && cp -R data ./build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.4",
+    "typescript": "^5.4.3"
+  }
+}
