@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import http from "https";
 import readline from "node:readline";
 import { Zipcodes } from "./types";
 
@@ -69,4 +70,33 @@ export const createJSONFile = (data: Zipcodes) => {
       console.log("json file created!");
     });
   }
+};
+
+export const downloadCSV = async (): Promise<void> => {
+  const url =
+    "https://prism.oregonstate.edu/projects/phm_data/phzm_us_zipcode_2023.csv";
+  const destination = `${__dirname}/data/phzm_us_zipcode_2023.csv`;
+
+  const file = fs.createWriteStream(destination);
+
+  http.get(url, function (response) {
+    console.log(response.statusCode, response.statusMessage);
+    response.pipe(file);
+    file
+      .on("finish", function () {
+        file.close();
+        if (response.statusCode !== 200) {
+          fs.unlink(destination, function () {
+            throw Error(
+              `File did not download. Error: ${response.statusMessage}`
+            );
+          });
+        }
+      })
+      .on("error", function (error) {
+        fs.unlink(destination, function () {
+          throw Error(`Could not create file. Error: ${error}`);
+        });
+      });
+  });
 };
