@@ -18,7 +18,9 @@ A simple light weight tool to find a zipcode's USDA zone. [^1]
 
 - `node index.js`
 
--[] Publish to NPM
--[] Obtain csv file online
+### TODO
+
+-Publish to NPM
+-Obtain csv file online
 
 [^1]: Data comes from https://prism.oregonstate.edu/projects/plant_hardiness_zones.php
