@@ -6,7 +6,7 @@ import {
 } from "./utils";
 
 export class ZoneTable {
-  static data: Zipcodes;
+  static #data: Zipcodes;
 
   /**
    * Reads the entire file first before constructing the dataset
@@ -16,7 +16,7 @@ export class ZoneTable {
    * @returns void
    */
   static loadDataSync() {
-    ZoneTable.data = processFileLinesSync();
+    ZoneTable.#data = processFileLinesSync();
   }
 
   /**
@@ -27,7 +27,7 @@ export class ZoneTable {
    * @returns void
    */
   static async loadData() {
-    ZoneTable.data = await processFileLines();
+    ZoneTable.#data = await processFileLines();
   }
 
   /**
@@ -37,7 +37,7 @@ export class ZoneTable {
    */
   static generateJson = () => {
     try {
-      createJSONFile(ZoneTable.data);
+      createJSONFile(ZoneTable.#data);
     } catch (error) {
       console.log("Could not create json file", error);
     }
@@ -58,7 +58,7 @@ export class ZoneTable {
       throw Error("Not a valid zipcode.");
     }
 
-    const result = ZoneTable.data[input];
+    const result = ZoneTable.#data[input];
 
     if (!result) {
       throw Error("No data found.");
@@ -74,9 +74,9 @@ export class ZoneTable {
    */
   static isDataLoaded = (): boolean => {
     if (
-      typeof ZoneTable.data !== null &&
-      typeof ZoneTable.data === "object" &&
-      Object.keys(ZoneTable.data).length > 0
+      typeof ZoneTable.#data !== null &&
+      typeof ZoneTable.#data === "object" &&
+      Object.keys(ZoneTable.#data).length > 0
     ) {
       return true;
     }
@@ -90,7 +90,7 @@ export class ZoneTable {
    * @returns void
    */
   static deleteData = () => {
-    ZoneTable.data = {};
+    ZoneTable.#data = {};
 
     return false;
   };

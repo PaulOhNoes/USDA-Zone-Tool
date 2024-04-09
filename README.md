@@ -6,21 +6,23 @@ A simple light weight tool to find a zipcode's USDA zone. [^1]
 - Only Typescript dependencies
 - Can generate a json file of the dataset
 
-### How to run with Typescript
+### How to install
 
-- `npm start`
+`npm install getusdazone`
 
-### How to build Javascript files
+### Example
 
-- `npm run build`
+```javascript
+const { ZoneTable } = require("getusdazone");
 
-### How to run Javascript files with NodeJS (inside the build's root)
+ZoneTable.loadDataSync();
+console.log(ZoneTable.getZipCodeData("10001"));
+```
 
-- `node index.js`
+> { zone: '7b', trange: '5 to 10', zonetitle: '7b: 5 to 10' }
 
 ### TODO
 
-- Publish to NPM
-- Obtain csv file online
+- Fetch csv file online
 
 [^1]: Data comes from https://prism.oregonstate.edu/projects/plant_hardiness_zones.php
