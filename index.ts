@@ -24,4 +24,6 @@ import ZoneTable from "./ZoneTable";
 // Scenario2();
 // GenerateJSONScenario();
 
-export { ZoneTable };
+module.exports = {
+  ZoneTable: ZoneTable,
+};
