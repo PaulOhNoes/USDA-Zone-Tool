@@ -23,3 +23,5 @@ const GenerateJSONScenario = () => {
 Scenario1();
 // Scenario2();
 // GenerateJSONScenario();
+
+export default ZoneTable;
