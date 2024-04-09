@@ -1,6 +1,7 @@
 import { ZipData, Zipcodes } from "./types";
 import {
   createJSONFile,
+  downloadCSV,
   processFileLines,
   processFileLinesSync,
 } from "./utils";
@@ -89,9 +90,16 @@ export class ZoneTable {
    *
    * @returns void
    */
-  static deleteData = () => {
+  static deleteData() {
     ZoneTable.#data = {};
+  }
 
-    return false;
-  };
+  /**
+   * downloads the csv file
+   *
+   * @returns void
+   */
+  static async download() {
+    await downloadCSV();
+  }
 }
