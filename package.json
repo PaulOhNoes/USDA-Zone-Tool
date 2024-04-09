@@ -1,6 +1,6 @@
 {
   "name": "getusdazone",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get USDA Zone By Zipcode",
   "repository": {
     "url": "https://github.com/PaulOhNoes/USDA-Zone-Tool"
