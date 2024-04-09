@@ -3,7 +3,7 @@ import readline from "node:readline";
 import { Zipcodes } from "./types";
 
 export const processFileLinesSync = (): Zipcodes => {
-  const filepath = "data/phzm_us_zipcode_2023.csv";
+  const filepath = `${__dirname}/data/phzm_us_zipcode_2023.csv`;
 
   if (!fs.existsSync(filepath)) {
     throw Error(`Can not find ${filepath}`);
@@ -27,7 +27,7 @@ export const processFileLinesSync = (): Zipcodes => {
 };
 
 export const processFileLines = async (): Promise<Zipcodes> => {
-  const filepath = "data/phzm_us_zipcode_2023.csv";
+  const filepath = `${__dirname}/data/phzm_us_zipcode_2023.csv`;
 
   if (!fs.existsSync(filepath)) {
     throw Error(`Can not find ${filepath}`);
@@ -58,7 +58,7 @@ export const processFileLines = async (): Promise<Zipcodes> => {
 };
 
 export const createJSONFile = (data: Zipcodes) => {
-  const filepath = "data/phzm_us_zipcode_2023.json";
+  const filepath = `${__dirname}/data/phzm_us_zipcode_2023.json`;
 
   if (fs.existsSync(filepath)) {
     console.log("File already exist!");

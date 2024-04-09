@@ -10,7 +10,4 @@
     "declaration": true,
     "moduleResolution": "Node"
   },
-  "exclude": [
-    "data"
-  ]
 }
